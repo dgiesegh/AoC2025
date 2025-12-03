@@ -27,4 +27,4 @@ for r in ranges:
             if l == 2:
                 ids_1.add(id)
 
-print("Solution 1:", sum(ids_1), "\nSlution 2:", sum(ids_2))
+print("Solution 1:", sum(ids_1), "\nSolution 2:", sum(ids_2))
