@@ -25,20 +25,16 @@ for i in range(len(operations)):
     solutions1.append(parse_calc(nums, operations[i]))
 
 # data prep 2
-lens = [len(l) for l in lines]
-lines_transposed = [[] for i in range(max(lens))]
-for j in range(max(lens)):
+lines_transposed = [[] for i in range(len(lines[0]))]
+for j in range(len(lines[0])):
     for i in range(len(lines)):
         lines_transposed[j].append(lines[i][j])
 
 # solution 2
-i = -1
 solutions2 = []
 nums = []
-operation = "+"
-while i < len(lines_transposed)-1:
-    i += 1
-    line = lines_transposed[i]
+operation = None
+for line in lines_transposed:
     if (line[-1] == "+" or line[-1] == "*"):
         operation = line[-1]
     num_str = "".join([c for c in line[:-1] if c != " "])
