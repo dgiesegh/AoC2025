@@ -28,6 +28,7 @@ indicators = [ind_to_binary(l[0]) for l in lines]
 schematics = [[schem_to_binary(s.split(",")) for s in l[1:-1]] for l in lines]
 joltages = [[int(j) for j in l[-1].split(",")] for l in lines]
 
+# Solution 1
 depths = []
 for i in range(len(indicators)):
     queue = [0]
@@ -54,9 +55,9 @@ for i in range(len(indicators)):
 
 print("Solution 1:", sum(depths))
 
+# Solution 2
 minvals = []
 for i in range(len(lines)):
-    print(f"Part 2: {i}/{len(lines)}", end="\r")
     T = np.array(get_trafomatrix(schematics[i], joltages[i]))
     b = joltages[i]
     res = opt.linprog(
